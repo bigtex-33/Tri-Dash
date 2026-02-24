@@ -4,34 +4,114 @@ HTML
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lauren's Triathlon Training Hub</title>
+    <title>Lauren's Training Hub</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a1a; color: white; margin: 20px; }
-        .grid { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
-        .card { background: #2d2d2d; padding: 20px; border-radius: 12px; border: 1px solid #444; }
-        h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-top: 0; }
-        iframe { width: 100%; height: 600px; border: none; border-radius: 8px; }
-        .weather-widget { min-height: 150px; background: #333; display: flex; align-items: center; justify-content: center; }
+        /* The "Wellness" Palette */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f5f7f2 0%, #e2e8de 100%);
+            --card-bg: rgba(255, 255, 255, 0.85); /* Frosted glass look */
+            --accent-green: #6b8e23; /* Olive/Sage */
+            --text-main: #3a3a3a;
+            --text-light: #666;
+        }
+
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            background: var(--bg-gradient); 
+            background-attachment: fixed;
+            color: var(--text-main); 
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 { 
+            text-align: center; 
+            font-weight: 300; 
+            letter-spacing: 1px; 
+            color: var(--accent-green);
+            margin-bottom: 30px;
+        }
+
+        /* Mobile-First Grid System */
+        .grid { 
+            display: flex; 
+            flex-direction: column; /* Stack on mobile */
+            gap: 20px; 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Side-by-side layout for Desktop */
+        @media (min-width: 850px) {
+            .grid { flex-direction: row; align-items: flex-start; }
+            .sidebar { flex: 1; }
+            .main-content { flex: 2; }
+        }
+
+        .card { 
+            background: var(--card-bg); 
+            padding: 20px; 
+            border-radius: 20px; 
+            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+            backdrop-filter: blur(8px); /* Blur effect for the frosted glass */
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        h2 { 
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 10px; 
+            margin-top: 0; 
+        }
+
+        /* Responsive Iframe container */
+        .calendar-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 75%; /* Maintain aspect ratio */
+        }
+
+        iframe { 
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            border-radius: 12px; 
+        }
+
     </style>
 </head>
 <body>
 
-    <h1>Lauren's Triathlon Training Dashboard</h1>
+    <h1>Lauren's Training Hub</h1>
 
     <div class="grid">
         <div class="sidebar">
             <div class="card">
-                <h2>Local Weather</h2>
-                <a class="weatherwidget-io" href="https://forecast7.com/en/38d44n122d67/95405/?unit=us" data-label_1="SANTA ROSA" data-label_2="WEATHER" data-font="Roboto" data-icons="Climacons" data-theme="weather_one" >SANTA ROSA WEATHER</a>
-		<script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-		</script>    
-        	</div>
-	</div>
+                <h2>The Conditions</h2>
+                <a class="weatherwidget-io" href="https://forecast7.com/en/38d44n122d67/95405/?unit=us" data-label_1="SANTA ROSA" data-label_2="CALIFORNIA" data-font="Roboto" data-icons="Climacons" data-theme="pure" >SANTA ROSA WEATHER</a>
+                <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                </script>    
+            </div>
+        </div>
 
-        <div class="card">
-            <h2>Club Schedules & Training</h2>
-            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&src=NGJiMzc2ZTk5MjVhYTU2OGZhZGY1N2YyNDU2YjQzMWViYWQwMGMzNzU4NjRhNTIyNmRmYWJmNmZlMWFiNjM2NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=bjRubWVkcXI4bThmbWM4amQzZG40NWx1bTBsNm1hbHFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=Z3JvdXB0cmFpbmluZ0BlbXBpcmVydW5uZXJzLm9yZw&src=bzNvN3U2Zjk0MmVoaGU0YmdrbGE0MWV1Z2Y1cXZxdHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e4c441&color=%230b8043&color=%238e24aa&color=%23f09300&color=%237cb342" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        <div class="main-content">
+            <div class="card">
+                <h2>Squad Schedule</h2>
+                <div class="calendar-container">
+                    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&mode=AGENDA&src=NGJiMzc2ZTk5MjVhYTU2OGZhZGY1N2YyNDU2YjQzMWViYWQwMGMzNzU4NjRhNTIyNmRmYWJmNmZlMWFiNjM2NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=bjRubWVkcXI4bThmbWM4amQzZG40NWx1bTBsNm1hbHFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=Z3JvdXB0cmFpbmluZ0BlbXBipeydcnVubmVycy5vcmZw&src=bzNvN3U2Zjk0MmVoaGU0YmdrbGE0MWV1Z2Y1cXZxdHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e4c441&color=%230b8043&color=%238e24aa&color=%23f09300&color=%237cb342"></iframe>
+                </div>
+            </div>
         </div>
     </div>
 
