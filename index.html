@@ -11,7 +11,6 @@
             --accent-green: #6b8e23;
             --terracotta: #d67d5c;
             --text-main: #3a3a3a;
-            --text-light: #666;
             --strava-orange: #fc4c02;
         }
 
@@ -25,9 +24,23 @@
             line-height: 1.6;
         }
 
-        /* LOGO & NAV */
+        /* THE WATERMARK LOGO STYLE */
         header { text-align: center; margin-bottom: 20px; }
-        .logo-img { width: 120px; height: auto; margin-bottom: 10px; }
+        .logo-img { 
+            width: 120px; 
+            height: 120px; 
+            object-fit: cover; /* Ensures it doesn't stretch */
+            border-radius: 50%; /* Makes it a circle */
+            opacity: 0.7; /* Semi-transparent watermark look */
+            transition: all 0.4s ease; /* Smooth hover effect */
+            border: 2px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 10px;
+        }
+        .logo-img:hover {
+            opacity: 1; /* Pops on hover */
+            transform: scale(1.05);
+        }
         
         nav { text-align: center; margin-bottom: 40px; }
         nav a { 
@@ -36,29 +49,15 @@
             color: var(--text-main); 
             font-weight: bold; 
             font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: color 0.3s;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
         nav a:hover { color: var(--terracotta); }
 
-        h1 { 
-            text-align: center; 
-            font-weight: 300; 
-            letter-spacing: 2px; 
-            color: var(--accent-green);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
+        h1 { text-align: center; font-weight: 300; letter-spacing: 3px; color: var(--accent-green); text-transform: uppercase; margin-top: 0; }
 
         /* LAYOUT */
-        .grid { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 20px; 
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
+        .grid { display: flex; flex-direction: column; gap: 20px; max-width: 1100px; margin: 0 auto; }
         @media (min-width: 850px) {
             .grid { flex-direction: row; align-items: flex-start; }
             .sidebar { flex: 1; }
@@ -75,33 +74,11 @@
             margin-bottom: 20px;
         }
 
-        h2 { 
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--terracotta);
-            border-bottom: 1px solid rgba(0,0,0,0.05); 
-            padding-bottom: 10px; 
-            margin-top: 0; 
-        }
+        h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--terracotta); border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 10px; margin-top: 0; }
 
-        /* COMPONENTS */
-        .calendar-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding-top: 75%;
-        }
-
-        iframe { 
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%; 
-            height: 100%; 
-            border: none; 
-            border-radius: 12px; 
-        }
+        /* BUTTONS & CALENDAR */
+        .calendar-container { position: relative; overflow: hidden; width: 100%; padding-top: 75%; }
+        iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px; }
 
         .strava-btn {
             display: inline-block;
@@ -112,21 +89,15 @@
             border-radius: 40px;
             font-weight: bold;
             margin-top: 10px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: 0.3s;
         }
-
-        .strava-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(252, 76, 2, 0.3);
-        }
-
-        .mission-text p { font-size: 1.1rem; margin-bottom: 20px; }
+        .strava-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(252, 76, 2, 0.3); }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="https://raw.githubusercontent.com/bigtex-33/Tri-Dash/main/brickbloom_rose.png" alt="Brick & Bloom Logo" class="logo-img">
+        <img src="brickbloom_rose.png" alt="Brick & Bloom Logo" class="logo-img">
         <h1>Brick & Bloom</h1>
     </header>
 
@@ -140,53 +111,41 @@
             <div class="sidebar">
                 <div class="card" style="text-align: center;">
                     <h2>Collective</h2>
-                    <p style="font-size: 0.9rem;">Join our Strava club to find training partners and routes.</p>
-                    <a href="https://www.strava.com/clubs/brickandbloom" target="_blank" class="strava-btn">
-                        JOIN ON STRAVA
-                    </a>
+                    <p style="font-size: 0.85rem; color: #666;">Santa Rosa's inclusive triathlon community.</p>
+                    <a href="https://www.strava.com/clubs/brickandbloom" target="_blank" class="strava-btn">JOIN ON STRAVA</a>
                 </div>
-
                 <div class="card">
                     <h2>Conditions</h2>
-                    <a class="weatherwidget-io" href="https://forecast7.com/en/38d44n122d67/95405/?unit=us" data-label_1="SANTA ROSA" data-label_2="CALIFORNIA" data-font="Roboto" data-icons="Climacons" data-theme="pure">SANTA ROSA WEATHER</a>
-                    <script>
-                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-                    </script>    
+                    <a class="weatherwidget-io" href="https://forecast7.com/en/38d44n122d67/95405/?unit=us" data-label_1="SANTA ROSA" data-label_2="CALIFORNIA" data-theme="pure">SANTA ROSA WEATHER</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>    
                 </div>
             </div>
-
             <div class="main-content">
                 <div class="card">
                     <h2>Schedule</h2>
                     <div class="calendar-container">
-                        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&mode=AGENDA&src=NGJiMzc2ZTk5MjVhYTU2OGZhZGY1N2YyNDU2YjQzMWViYWQwMGMzNzU4NjRhNTIyNmRmYWJmNmZlMWFiNjM2NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=bjRubWVkcXI4bThmbWM4amQzZG40NWx1bTBsNm1hbHFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=Z3JvdXB0cmFpbmluZ0BlbXBpcmVydW5uZXJzLm9yZw&src=bzNvN3U2Zjk0MmVoaGU0YmdrbGE0MWV1Z2Y1cXZxdHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e4c441&color=%230b8043&color=%238e24aa&color=%23f09300&color=%237cb342"></iframe>
+                        <iframe src="https://calendar.google.com/calendar/embed?src=4bb376e9925aa568fadf57f2456b431ebad00c375864a5226dfabf6fe1ab6366@group.calendar.google.com&ctz=America/Los_Angeles"></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="mission" class="tab-content" style="display:none; max-width: 800px; margin: 0 auto;">
-        <div class="card mission-text">
+    <div id="mission" class="tab-content" style="display:none; max-width: 700px; margin: 0 auto;">
+        <div class="card">
             <h2>Our Mission</h2>
-            <p><strong>Brick & Bloom</strong> was founded on a simple truth: Triathlon is for every body.</p>
+            <p><strong>Brick & Bloom</strong> was founded on a simple truth: <em>Triathlon is for every body.</em></p>
             <p>In the shadow of traditional "Iron" culture, many athletes—particularly women and minorities—feel there isn't a seat at the table. We are here to change that.</p>
-            <p>We focus on the <strong>Brick</strong> (the hard work of training) and the <strong>Bloom</strong> (the personal growth that follows). This isn't a high-pressure race team; it's a Santa Rosa community collective designed to lower the barrier to entry.</p>
-            <p>Whether you are borrowing a bike for your first 5k or training for a full distance, you belong here. No gatekeeping. No dues. Just movement.</p>
+            <p>We focus on the <strong>Brick</strong> (the hard work of training) and the <strong>Bloom</strong> (the personal growth that follows). This is a Santa Rosa collective designed to lower the barrier to entry.</p>
+            <p>No gatekeeping. No dues. Just movement.</p>
         </div>
     </div>
 
     <script>
         function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.style.display = 'none';
-            });
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
             document.getElementById(tabId).style.display = 'block';
         }
     </script>
-
 </body>
 </html>
-
-
-
