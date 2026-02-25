@@ -32,7 +32,7 @@
             border-radius: 50%; 
             opacity: 0.8;
             transition: all 0.4s ease;
-            border: 3px solid white;
+            border: 3px solid black;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-bottom: 10px;
         }
@@ -77,7 +77,7 @@
 
         .strava-btn {
             display: inline-block;
-            background-color: var(--strava-orange);
+            background-color: var(--terracotta);
             color: white;
             padding: 14px 28px;
             text-decoration: none;
@@ -95,15 +95,15 @@
     </header>
 
     <nav>
-        <a onclick="showTab('home')">HOME</a>
+        <a onclick="showTab('social')">SOCIAL</a>
         <a onclick="showTab('mission')">MISSION</a>
         <a onclick="showTab('about')">ABOUT</a>
     </nav>
 
-    <div id="home" class="tab-content">
+    <div id="social" class="tab-content">
         <div class="grid">
             <div class="sidebar">
-                <div class="card" style="text-align: center;">
+                <div class="card">
                     <h2>Collective</h2>
                     <p style="font-size: 0.85rem; color: #666;">Santa Rosa's inclusive triathlon community.</p>
                     <a href="https://www.strava.com/clubs/brickandbloom" target="_blank" class="strava-btn">JOIN ON STRAVA</a>
@@ -116,7 +116,7 @@
             </div>
             <div class="main-content">
                 <div class="card">
-                    <h2>Schedule</h2>
+                    <h2>Local Clubs Calendar</h2>
                     <div class="calendar-container">
                         <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&mode=AGENDA&src=NGJiMzc2ZTk5MjVhYTU2OGZhZGY1N2YyNDU2YjQzMWViYWQwMGMzNzU4NjRhNTIyNmRmYWJmNmZlMWFiNjM2NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=bjRubWVkcXI4bThmbWM4amQzZG40NWx1bTBsNm1hbHFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=Z3JvdXB0cmFpbmluZ0BlbXBpcmVydW5uZXJzLm9yZw&src=bzNvN3U2Zjk0MmVoaGU0YmdrbGE0MWV1Z2Y1cXZxdHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e4c441&color=%230b8043&color=%238e24aa&color=%23f09300&color=%237cb342"></iframe>
                     </div>
@@ -125,24 +125,24 @@
         </div>
     </div>
 
-    <div id="mission" class="tab-content" style="display:none; text-align: center; max-width: 700px; margin: 0 auto;">
+    <div id="mission" class="tab-content" style="display:none; max-width: 700px; margin: 0 auto;">
         <div class="card">
-            <h2>Our Mission</h2>
+            <h2>Mission</h2>
             <p><strong>Brick & Bloom</strong> was founded on a simple truth: <em>Triathlon is for every body.</em></p>
-            <p>In the shadow of traditional "Iron" culture, many athletes—particularly women and minorities—feel there isn't a seat at the table. We are here to change that.</p>
-            <p>We focus on the <strong>Brick</strong> (the hard work of training) and the <strong>Bloom</strong> (the personal growth that follows). This is a Santa Rosa community collective designed to lower the barrier to entry.</p>
+            <p>In the shadow of elite triathlon culture, many athletes—particularly women and minorities—feel there isn't space for them.  We are here to support more people starting in the sport.</p>
+            <p>We focus on the <strong>Brick</strong> of rewarding training and the <strong>Bloom</strong> personal growth that follows. This is a Santa Rosa community collective designed to lower the barrier to entry.</p>
             <p>No gatekeeping. No dues. Just movement.</p>
         </div>
     </div>
 
-    <div id="about" class="tab-content" style="display:none; text-align: center; max-width: 700px; margin: 0 auto;">
+    <div id="about" class="tab-content" style="display:none; max-width: 700px; margin: 0 auto;">
         <div class="card">
             <h2>About</h2>
-            <p><strong>Brick & Bloom</strong> was started by Lauren after experiencing the gap in triathlon resources in Santa Rosa.</p>
-            <p>She is a second-generation single mom who turned to triathlon during a difficult chapter. Like her mother, she found the challenge empowering and regulating at times when other outlets didn't work.</p>
+            <p><strong>Brick & Bloom</strong> was started by Lauren after experiencing the gap in triathlon resources in Santa Rosa preparing for her first triathlon.</p>
+            <p>She is a second-generation single mom who turned to triathlon during a difficult chapter. Like her mother, Lauren found the challenge empowering and regulating at times when other outlets didn't work.</p>
             <p>As she sought out a community to bridge the gap between starting out and seeking coaching, she realized the post-COVID landscape for local triathlon clubs was non-existent.</p>
-            <p>Through discovering inexpensive gear, local clubs, and low-cost outings, she realized that others were looking for this same sense of community.</p>
-            <p><strong>Brick & Bloom</strong> is aimed to help you start. No gatekeeping. No dues. Just movement.</p>
+            <p>Through discovering inexpensive gear resource, local clubs, and low-cost outings, she realized that others were looking for this same sense of community.</p>
+            <p><strong>Brick & Bloom</strong> is aimed to help you start.  Everyone is welcome. Start where you are. Use what you have. Do what you can.</p>
         </div>
     </div>
 
@@ -154,3 +154,4 @@
     </script>
 </body>
 </html>
+
