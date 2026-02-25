@@ -70,7 +70,23 @@
             margin-bottom: 20px;
         }
 
-        h2 { font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: var(--terracotta); border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 10px; margin-top: 0; }
+        /* Custom Layout for Gear/Resource Tabs */
+    .resource-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    }
+
+    @media (min-width: 850px) {
+    .resource-columns {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    .resource-columns .card {
+        flex: 1; /* This makes both cards exactly 50% width */
+    }
+}
+     h2 { font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: var(--terracotta); border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 10px; margin-top: 0; }
 
         .calendar-container { position: relative; overflow: hidden; width: 100%; padding-top: 75%; }
         iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px; }
@@ -126,9 +142,14 @@
         </div>
     </div>
 
-    <div id="gear" class="tab-content" style="display:none; max-width: 700px; margin: 0 auto;">
-        <div class="grid">
-            <div class="sidebar">
+    <div id="gear" class="tab-content" style="display:none; max-width: 1100px; margin: 0 auto;">
+        <div class="card" style="text-align: center;">
+             <h2>Gear</h2>
+                    <p><strong>Brick & Bloom</strong> stands by - start where you are and use what you have.</p>
+                    <p>Experience will help guide you on what resources may be valuable to you, be that techincal clothing or other gear.</p>
+                    <p>As a Santa Rosa community collective designed to lower the barrier to entry, these resources are offered to lower the cost of triathlon related gear.</p>
+        </div>
+        <div class="resource-columns">
                 <div class="card">
                     <h2>Clothing</h2>
                     <p style="font-size: 0.85rem; color: #666;">TriThrift is a registered 501C3 organization that supports nonprofits that provide athletic opportunities to people with physical challenges from the money we make selling discounted gear and equipment.</p>
@@ -139,16 +160,7 @@
                      <p style="font-size: 0.85rem; color: #666;">Community Bikes is a reuse and repair training program operated by LITE Initiatives. The generosity of local donors means great bikes and accessories are often available.</p>
                     <a href="https://communitybikessantarosa.org/" target="_blank" class="strava-btn">COMMUNITY BIKES</a>
                 </div>
-            </div>
-            <div class="main-content">
-                <div class="card">
-                    <h2>Gear</h2>
-                    <p><strong>Brick & Bloom</strong> stands by - start where you are and use what you have.</p>
-                    <p>Experience will help guide you on what resources may be valuable to you, be that techincal clothing or other gear.</p>
-                    <p>As a Santa Rosa community collective designed to lower the barrier to entry, these resources are offered to lower the cost of triathlon related gear.</p>
-                </div>
-            </div>
-        </div>   
+        </div>
     </div>
     
     <div id="mission" class="tab-content" style="display:none; max-width: 700px; margin: 0 auto;">
@@ -180,6 +192,7 @@
     </script>
 </body>
 </html>
+
 
 
 
