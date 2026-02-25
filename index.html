@@ -1,18 +1,17 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloom & Brick/title>
+    <title>Brick & Bloom</title>
     <style>
-        /* The "Wellness" Palette */
         :root {
             --bg-gradient: linear-gradient(135deg, #f5f7f2 0%, #e2e8de 100%);
-            --card-bg: rgba(255, 255, 255, 0.85); /* Frosted glass look */
-            --accent-green: #6b8e23; /* Olive/Sage */
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --accent-green: #6b8e23;
             --text-main: #3a3a3a;
             --text-light: #666;
+            --strava-orange: #fc4c02;
         }
 
         body { 
@@ -33,16 +32,14 @@ HTML
             margin-bottom: 30px;
         }
 
-        /* Mobile-First Grid System */
         .grid { 
             display: flex; 
-            flex-direction: column; /* Stack on mobile */
+            flex-direction: column; 
             gap: 20px; 
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Side-by-side layout for Desktop */
         @media (min-width: 850px) {
             .grid { flex-direction: row; align-items: flex-start; }
             .sidebar { flex: 1; }
@@ -54,8 +51,9 @@ HTML
             padding: 20px; 
             border-radius: 20px; 
             box-shadow: 0 8px 32px rgba(0,0,0,0.05);
-            backdrop-filter: blur(8px); /* Blur effect for the frosted glass */
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(255,255,255,0.3);
+            margin-bottom: 20px;
         }
 
         h2 { 
@@ -68,26 +66,38 @@ HTML
             margin-top: 0; 
         }
 
-        /* Responsive Iframe container */
         .calendar-container {
             position: relative;
             overflow: hidden;
             width: 100%;
-            padding-top: 75%; /* Maintain aspect ratio */
+            padding-top: 75%;
         }
 
         iframe { 
             position: absolute;
             top: 0;
             left: 0;
-            bottom: 0;
-            right: 0;
             width: 100%; 
             height: 100%; 
             border: none; 
             border-radius: 12px; 
         }
 
+        .strava-btn {
+            display: inline-block;
+            background-color: var(--strava-orange);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }
+
+        .strava-btn:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -97,33 +107,31 @@ HTML
     <div class="grid">
         <div class="sidebar">
             <div class="card">
-                <h2>Weather Conditions</h2>
+                <h2>Weather</h2>
                 <a class="weatherwidget-io" href="https://forecast7.com/en/38d44n122d67/95405/?unit=us" data-label_1="SANTA ROSA" data-label_2="CALIFORNIA" data-font="Roboto" data-icons="Climacons" data-theme="pure" >SANTA ROSA WEATHER</a>
                 <script>
                 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
                 </script>    
             </div>
-            <div style="text-align: center; padding: 40px 20px; background-color: #fdfaf8; border-radius: 15px; margin: 20px 0;">
-    <h2 style="color: #d67d5c; font-family: sans-serif;">Join the Collective</h2>
-    <p style="color: #5a6e5d;">Connect with local athletes, share routes, and see our weekly movement on Strava.</p>
-    
-    <a href="https://www.strava.com/clubs/brickandbloom" target="_blank" 
-       style="display: inline-block; background-color: #fc4c02; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; font-family: sans-serif; margin-top: 10px;">
-       JOIN ON STRAVA
-    </a>
-</div>
+
+            <div class="card" style="text-align: center;">
+                <h2>Collective</h2>
+                <p style="font-size: 0.9rem;">Join our Strava club to find training partners and routes.</p>
+                <a href="https://www.strava.com/clubs/brickandbloom" target="_blank" class="strava-btn">
+                    JOIN ON STRAVA
+                </a>
+            </div>
         </div>
 
         <div class="main-content">
             <div class="card">
                 <h2>Schedule</h2>
                 <div class="calendar-container">
-                    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&mode=AGENDA&src=NGJiMzc2ZTk5MjVhYTU2OGZhZGY1N2YyNDU2YjQzMWViYWQwMGMzNzU4NjRhNTIyNmRmYWJmNmZlMWFiNjM2NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=bjRubWVkcXI4bThmbWM4amQzZG40NWx1bTBsNm1hbHFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=Z3JvdXB0cmFpbmluZ0BlbXBpcmVydW5uZXJzLm9yZw&src=bzNvN3U2Zjk0MmVoaGU0YmdrbGE0MWV1Z2Y1cXZxdHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e4c441&color=%230b8043&color=%238e24aa&color=%23f09300&color=%237cb342" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&mode=AGENDA&src=NGJiMzc2ZTk5MjVhYTU2OGZhZGY1N2YyNDU2YjQzMWViYWQwMGMzNzU4NjRhNTIyNmRmYWJmNmZlMWFiNjM2NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=bjRubWVkcXI4bThmbWM4amQzZG40NWx1bTBsNm1hbHFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=Z3JvdXB0cmFpbmluZ0BlbXBpcmVydW5uZXJzLm9yZw&src=bzNvN3U2Zjk0MmVoaGU0YmdrbGE0MWV1Z2Y1cXZxdHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e4c441&color=%230b8043&color=%238e24aa&color=%23f09300&color=%237cb342"></iframe>
                 </div>
             </div>
         </div>
     </div>
 
 </body>
-
 </html>
