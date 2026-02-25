@@ -24,23 +24,19 @@
             line-height: 1.6;
         }
 
-        /* THE WATERMARK LOGO STYLE */
         header { text-align: center; margin-bottom: 20px; }
         .logo-img { 
-            width: 120px; 
-            height: 120px; 
-            object-fit: cover; /* Ensures it doesn't stretch */
-            border-radius: 50%; /* Makes it a circle */
-            opacity: 0.7; /* Semi-transparent watermark look */
-            transition: all 0.4s ease; /* Smooth hover effect */
-            border: 2px solid white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 150px; 
+            height: 150px; 
+            object-fit: cover;
+            border-radius: 50%; 
+            opacity: 0.8;
+            transition: all 0.4s ease;
+            border: 3px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-bottom: 10px;
         }
-        .logo-img:hover {
-            opacity: 1; /* Pops on hover */
-            transform: scale(1.05);
-        }
+        .logo-img:hover { opacity: 1; transform: scale(1.03); }
         
         nav { text-align: center; margin-bottom: 40px; }
         nav a { 
@@ -51,12 +47,12 @@
             font-size: 0.9rem;
             letter-spacing: 2px;
             text-transform: uppercase;
+            cursor: pointer;
         }
         nav a:hover { color: var(--terracotta); }
 
         h1 { text-align: center; font-weight: 300; letter-spacing: 3px; color: var(--accent-green); text-transform: uppercase; margin-top: 0; }
 
-        /* LAYOUT */
         .grid { display: flex; flex-direction: column; gap: 20px; max-width: 1100px; margin: 0 auto; }
         @media (min-width: 850px) {
             .grid { flex-direction: row; align-items: flex-start; }
@@ -76,7 +72,6 @@
 
         h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--terracotta); border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 10px; margin-top: 0; }
 
-        /* BUTTONS & CALENDAR */
         .calendar-container { position: relative; overflow: hidden; width: 100%; padding-top: 75%; }
         iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px; }
 
@@ -89,22 +84,20 @@
             border-radius: 40px;
             font-weight: bold;
             margin-top: 10px;
-            transition: 0.3s;
         }
-        .strava-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(252, 76, 2, 0.3); }
     </style>
 </head>
 <body>
 
     <header>
         <img src="brickbloom_rose.png" alt="Brick & Bloom Logo" class="logo-img">
-        <h1>Brick & Bloom | Santa Rosa</h1>
+        <h1>Brick & Bloom</h1>
     </header>
 
     <nav>
-        <a href="#" onclick="showTab('home')">HOME</a>
-        <a href="#" onclick="showTab('mission')">MISSION</a>
-        <a href="#" onclick="showTab('mission')">ABOUT</a>
+        <a onclick="showTab('home')">HOME</a>
+        <a onclick="showTab('mission')">MISSION</a>
+        <a onclick="showTab('about')">ABOUT</a>
     </nav>
 
     <div id="home" class="tab-content">
@@ -112,20 +105,21 @@
             <div class="sidebar">
                 <div class="card" style="text-align: center;">
                     <h2>Collective</h2>
-                    <p style="font-size: 0.85rem; color: #666;">Join Brick & Bloom Santa Rosa's inclusive triathlon community.</p>
+                    <p style="font-size: 0.85rem; color: #666;">Santa Rosa's inclusive triathlon community.</p>
                     <a href="https://www.strava.com/clubs/brickandbloom" target="_blank" class="strava-btn">JOIN ON STRAVA</a>
                 </div>
-                <div class="card" style="text-align: center;">
+                <div class="card">
                     <h2>Conditions</h2>
                     <a class="weatherwidget-io" href="https://forecast7.com/en/38d44n122d67/95405/?unit=us" data-label_1="SANTA ROSA" data-label_2="CALIFORNIA" data-theme="pure">SANTA ROSA WEATHER</a>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>    
                 </div>
             </div>
             <div class="main-content">
-                <div class="card" style="text-align: center;">
+                <div class="card">
                     <h2>Schedule</h2>
                     <div class="calendar-container">
-                        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&title=Brick%20%26%20Bloom&src=NGJiMzc2ZTk5MjVhYTU2OGZhZGY1N2YyNDU2YjQzMWViYWQwMGMzNzU4NjRhNTIyNmRmYWJmNmZlMWFiNjM2NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=bjRubWVkcXI4bThmbWM4amQzZG40NWx1bTBsNm1hbHFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=Z3JvdXB0cmFpbmluZ0BlbXBpcmVydW5uZXJzLm9yZw&src=bzNvN3U2Zjk0MmVoaGU0YmdrbGE0MWV1Z2Y1cXZxdHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23616161&color=%23616161&color=%23e67c73&color=%237cb342&color=%23e67c73" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&mode=AGENDA&src=NGJiMzc2ZTk5MjVhYTU2OGZhZGY1N2YyNDU2YjQzMWViYWQwMGMzNzU4NjRhNTIyNmRmYWJmNmZlMWFiNjM2NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=bjRubWVkcXI4bThmbWM4amQzZG40NWx1bTBsNm1hbHFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=Z3JvdXB0cmFpbmluZ0BlbXBpcmVydW5uZXJzLm9yZw&src=bzNvN3U2Zjk0MmVoaGU0YmdrbGE0MWV1Z2Y1cXZxdHNAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e4c441&color=%230b8043&color=%238e24aa&color=%23f09300&color=%237cb342"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -135,9 +129,8 @@
         <div class="card">
             <h2>Our Mission</h2>
             <p><strong>Brick & Bloom</strong> was founded on a simple truth: <em>Triathlon is for every body.</em></p>
-            <p>Many athletes—particularly women and minorities—feel the high cost, high struggle barriers to trying triathlons. We are here to change that.</p>
-            <p>We focus on the <strong>Brick</strong> hard work of training and the <strong>Bloom</strong> personal growth that follows.</p>
-            <p>We offer space to find resources and connect designed to lower the barrier to entry.</p>
+            <p>In the shadow of traditional "Iron" culture, many athletes—particularly women and minorities—feel there isn't a seat at the table. We are here to change that.</p>
+            <p>We focus on the <strong>Brick</strong> (the hard work of training) and the <strong>Bloom</strong> (the personal growth that follows). This is a Santa Rosa community collective designed to lower the barrier to entry.</p>
             <p>No gatekeeping. No dues. Just movement.</p>
         </div>
     </div>
@@ -146,10 +139,10 @@
         <div class="card">
             <h2>About</h2>
             <p><strong>Brick & Bloom</strong> was started by Lauren after experiencing the gap in triathlon resources in Santa Rosa.</p>
-            <p>She is a second generation single-mom, who turned to triathlon during a difficult chapter.  Like her mother, she's found the challenge empowring and regulating at times when other outlets didn't work.</p>
-            <p>Lauren sought out a community between starting and seeking out coaching, and couldn't find one.  The post-COVID landscape was different (non-existent) for local traithlon clubs.</p>
-            <p>As she's discovered resources for inexpensive gear, local clubs and outings that are low cost, and sought community she realized that this may be what others are looking for as well.</p>
-            <p><strong>Brick & Bloom</strong>is aimed to help you start. No gatekeeping. No dues. Just movement.</p>
+            <p>She is a second-generation single mom who turned to triathlon during a difficult chapter. Like her mother, she found the challenge empowering and regulating at times when other outlets didn't work.</p>
+            <p>As she sought out a community to bridge the gap between starting out and seeking coaching, she realized the post-COVID landscape for local triathlon clubs was non-existent.</p>
+            <p>Through discovering inexpensive gear, local clubs, and low-cost outings, she realized that others were looking for this same sense of community.</p>
+            <p><strong>Brick & Bloom</strong> is aimed to help you start. No gatekeeping. No dues. Just movement.</p>
         </div>
     </div>
 
@@ -161,6 +154,3 @@
     </script>
 </body>
 </html>
-
-
-
