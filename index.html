@@ -139,13 +139,13 @@
     </header>
 
     <nav>
-        <a onclick="showTab('social')" id="defaultOpen">SOCIAL</a>
+        <a onclick="showTab('social')" id="defaultOpen" class="active">SOCIAL</a>
         <a onclick="showTab('training')">TRAINING</a>
         <a onclick="showTab('gear')">GEAR</a>
         <a onclick="showTab('about')">ABOUT</a>
     </nav>
 
-    <div id="social" class="tab-content active" style="display:none; max-width: 900px; margin: 0 auto;">
+    <div id="social" class="tab-content" style="max-width: 900px; margin: 0 auto;"></div>
         <div class="card">
             <h2>Collective</h2>
             <p style="font-size: 0.85rem; color:var(--text-main);">Brick & Bloom is a collective designed to make triathlon training social and inclusive. This isn't a formal club.  We’re the bridge to finding your next training partner and inexpensive resources to get started. The Strava group is kept private to support communication between members.</p>
@@ -157,7 +157,7 @@
         </div>
     </div>
     
-    <div id="training" class="tab-content" style="display:none; max-width: 900px; margin: 0 auto;">
+    <div id="training" class="tab-content" style="max-width: 900px; margin: 0 auto;"></div>
         <div class="grid">
             <div class="main-content">
                 <div class="card">
@@ -177,7 +177,7 @@
         </div>
      </div>
 
-    <div id="gear" class="tab-content" style="display:none; max-width: 900px; margin: 0 auto;">
+    <div id="gear" class="tab-content" style="max-width: 900px; margin: 0 auto;"></div>
         <div class="card">
              <h2>Gear</h2>
                     <p style="font-size: 0.85rem; color:var(--text-main);"><strong>Brick & Bloom</strong> believes that you can start where you are and use what you have.</p>
@@ -200,7 +200,7 @@
         </div>
     </div>
     
-    <div id="about" class="tab-content" style="display:none; max-width: 900px; margin: 0 auto;">
+    <div id="about" class="tab-content" style="max-width: 900px; margin: 0 auto;"></div>
          <div class="card">
             <h2>Mission</h2>
             <p style="font-size: 0.85rem; color:var(--text-main);"><strong>Brick & Bloom</strong> was started with a simple belief: <em>Triathlon is for every body.</em></p>
@@ -220,26 +220,25 @@
 
     <script>
     function showTab(tabId) {
-    // 1. Hide every single tab content div
+    // 1. Hide all tabs and remove active class
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => {
         content.style.display = 'none';
         content.classList.remove('active');
     });
 
-    // 2. Remove the 'active' styling from all navigation links
+    // 2. Remove active styling from nav links
     const links = document.querySelectorAll('nav a');
     links.forEach(link => link.classList.remove('active'));
 
-    // 3. Show the one tab you actually clicked
+    // 3. Show the selected tab
     const activeTab = document.getElementById(tabId);
     if (activeTab) {
         activeTab.style.display = 'block';
         activeTab.classList.add('active');
     }
 
-    // 4. Find the link that was clicked and highlight it
-    // We do this by looking for the link that has the matching onclick ID
+    // 4. Highlight the correct link
     links.forEach(link => {
         if (link.getAttribute('onclick').includes(tabId)) {
             link.classList.add('active');
@@ -247,14 +246,16 @@
     });
     }
 
-    // Ensure the page starts on SOCIAL
-    document.addEventListener("DOMContentLoaded", function() {
+    // Ensure the page starts correctly
+    window.onload = function() {
     showTab('social');
-    });
+    };
     </script>
       
 </body>
+    
 </html>
+
 
 
 
