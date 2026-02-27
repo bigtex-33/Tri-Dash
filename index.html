@@ -18,6 +18,7 @@
 
         body { 
             font-family: 'Dosis', sans-serif;
+            font-size: 18px; /* Increases the base "1rem" size */
             background: var(--bg-gradient); 
             background-attachment: fixed;
             color: var(--text-main); 
@@ -95,6 +96,12 @@
             margin-bottom: 20px;
         }
 
+        .card p {
+            font-size: 1.3rem !important;         /* Adjusts font height */
+            color: var(--text-main) !important;   /* Adjusts font color */
+            line-height: 1.7;                     /* Adds a bit of breathing room between lines */
+        }
+        
         /* Custom Layout for Gear/Resource Tabs */
         .resource-columns {
             display: flex;
@@ -113,7 +120,7 @@
             }
         }
          
-        h2 { font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: var(--terracotta); border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 10px; margin-top: 0; }
+        h2 {font-size: 1.5rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: var(--terracotta); border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 10px; margin-top: 0; }
 
         .calendar-container { position: relative; overflow: hidden; width: 100%; padding-top: 75%; }
         
@@ -148,12 +155,12 @@
     <div id="social" class="tab-content" style="max-width: 900px; margin: 0 auto;">
         <div class="card">
             <h2>Collective</h2>
-            <p style="font-size: 0.85rem; color:var(--text-main);">Brick & Bloom is a collective designed to make triathlon training social and inclusive. This isn't a formal club.  We’re the bridge to finding your next training partner and inexpensive resources to get started. The Strava group is kept private to support communication between members.</p>
+            <p> Brick & Bloom is a collective designed to make triathlon training social and inclusive. This isn't a formal club.  We’re the bridge to finding your next training partner and inexpensive resources to get started. The Strava group is kept private to support communication between members.</p>
             <a href="https://www.strava.com/clubs/brickandbloom" target="_blank" class="strava-btn">Join on STRAVA</a>
         </div>
         <div class="card">
             <h2>Social</h2>
-            <p style="font-size: 0.85rem; color:var(--text-main);">Check back soon for our first social event.  Events will also be posted on the calendar under the Training page.</p>
+            <p>Check back soon for our first social event.  Events will also be posted on the calendar under the Training page.</p>
         </div>
     </div>
     
@@ -162,11 +169,13 @@
             <div class="main-content">
                 <div class="card">
                     <h2>Local Clubs Calendar</h2>
-                    <p style="font-size: 0.85rem; color:var(--text-main);">This community calendar shows practies and training offered through local clubs. Events are identified as either Swim, Bike, or Run. Future Brick & Bloom oppportunites to connect will be listed there as well. Click for details or to add them to your personal calendar.</p>
+                    <p>This community calendar shows practies and training offered through local clubs. Events are identified as either Swim, Bike, or Run. Future Brick & Bloom oppportunites to connect will be listed there as well. Click for details or to add them to your personal calendar.</p>
                     <div class="calendar-container">
                         <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=America%2FLos_Angeles&showPrint=0&src=NGJiMzc2ZTk5MjVhYTU2OGZhZGY1N2YyNDU2YjQzMWViYWQwMGMzNzU4NjRhNTIyNmRmYWJmNmZlMWFiNjM2NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23616161" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
                     </div>
-                </div> </div> <div class="sidebar">
+                </div> 
+            </div> 
+            <div class="sidebar">
                 <div class="card">
                     <h2>Conditions</h2>
                     <a class="weatherwidget-io" href="https://forecast7.com/en/38d44n122d67/95405/?unit=us" data-label_1="SANTA ROSA" data-label_2="CALIFORNIA" data-theme="pure">SANTA ROSA WEATHER</a>
@@ -179,19 +188,19 @@
     <div id="gear" class="tab-content" style="max-width: 900px; margin: 0 auto;">
         <div class="card">
              <h2>Gear</h2>
-                    <p style="font-size: 0.85rem; color:var(--text-main);"><strong>Brick & Bloom</strong> believes that you can start where you are and use what you have.</p>
-                    <p style="font-size: 0.85rem; color:var(--text-main);">Experience will guide you on what resources may be valuable to you, be that techincal clothing or other gear.</p>
-                    <p style="font-size: 0.85rem; color:var(--text-main);">As a Santa Rosa community designed to lower the barrier to entry, these resources are offered to lower the cost of triathlon related gear.</p>
+                    <p><strong>Brick & Bloom</strong> believes that you can start where you are and use what you have.</p>
+                    <p>Experience will guide you on what resources may be valuable to you, be that techincal clothing or other gear.</p>
+                    <p>As a Santa Rosa community designed to lower the barrier to entry, these resources are offered to lower the cost of triathlon related gear.</p>
         </div>
         <div class="resource-columns">
                 <div class="card">
                     <h2>Clothing</h2>
-                    <p style="font-size: 0.85rem; color: #666;">TriThrift is a registered 501C3 organization that provides athletic opportunities to people with physical challenges from the money made selling discounted gear and equipment.</p>
+                    <p>TriThrift is a registered 501C3 organization that provides athletic opportunities to people with physical challenges from the money made selling discounted gear and equipment.</p>
                     <a href="https://trithrift.org/" target="_blank" class="strava-btn">TriThrift</a>
                 </div>
                 <div class="card">
                     <h2>Bikes</h2>
-                     <p style="font-size: 0.85rem; color: #666;">Community Bikes is a reuse and repair training program operated by LITE Initiatives. The generosity of local donors means great bikes and accessories are often available in the store at reasonable used prices.</p>
+                    <p>Community Bikes is a reuse and repair training program operated by LITE Initiatives. The generosity of local donors means great bikes and accessories are often available in the store at reasonable used prices.</p>
                     <a href="https://communitybikessantarosa.org/" target="_blank" class="strava-btn">Community Bikes</a>
                 </div>
         </div>
@@ -200,17 +209,17 @@
     <div id="about" class="tab-content" style="max-width: 900px; margin: 0 auto;">
          <div class="card">
             <h2>Mission</h2>
-            <p style="font-size: 0.85rem; color:var(--text-main);"><strong>Brick & Bloom</strong> was started with a simple belief: <em>Triathlon is for every body.</em></p>
-            <p style="font-size: 0.85rem; color:var(--text-main);">For many of us, triathlon isn't about the finish line. It's about the Tuesday morning swim that clears the static in our heads. It's about the bike ride where nobody needs us for a few hours. We don’t train to escape, we train to build the strength to endure life better.</p>
-            <p style="font-size: 0.85rem; color:var(--text-main);">We focus on the <strong>Brick</strong> of challenging training and the <strong>Bloom</strong> personal growth that follows.</p>
-            <p style="font-size: 0.85rem; color:var(--text-main);">This is a Santa Rosa community designed to lower the barrier to entry, by fostering connections and providing resources.</p>
-            <p style="font-size: 0.85rem; color:var(--text-main);">No gatekeeping.  No dues. Start where you are. Use what you have. Do what you can.</p>
+            <p><strong>Brick & Bloom</strong> was started with a simple belief: <em>Triathlon is for every body.</em></p>
+            <p>For many of us, triathlon isn't about the finish line. It's about the Tuesday morning swim that clears the static in our heads. It's about the bike ride where nobody needs us for a few hours. We don’t train to escape, we train to build the strength to endure life better.</p>
+            <p>We focus on the <strong>Brick</strong> of challenging training and the <strong>Bloom</strong> personal growth that follows.</p>
+            <p>This is a Santa Rosa community designed to lower the barrier to entry, by fostering connections and providing resources.</p>
+            <p>No gatekeeping.  No dues. Start where you are. Use what you have. Do what you can.</p>
         </div>
         <div class="card">
             <h2>About</h2>
-            <p style="font-size: 0.85rem; color:var(--text-main);"><strong>Brick & Bloom</strong> was started by a 40-something single mom.  She was inspired by her mother who registered for her first tri before she had a bike to find a different source of strength after her transition to single motherhood.</p>
-            <p style="font-size: 0.85rem; color:var(--text-main);">The founder learned to swim just to finish her first local sprint tri in a similar season of life. She believes triathlon isn't just a sport.  It was a way to stop being everything to everyone and start being something to herself.</p>
-            <p style="font-size: 0.85rem; color:var(--text-main);">Whether you are in a season of <strong>Brick</strong> or <strong>Bloom</strong> she want there to be a place for every body in the sport.</p>
+            <p><strong>Brick & Bloom</strong> was started by a 40-something single mom.  She was inspired by her mother who registered for her first tri before she had a bike to find a different source of strength after her transition to single motherhood.</p>
+            <p>The founder learned to swim just to finish her first local sprint tri in a similar season of life. She believes triathlon isn't just a sport.  It was a way to stop being everything to everyone and start being something to herself.</p>
+            <p>Whether you are in a season of <strong>Brick</strong> or <strong>Bloom</strong> she want there to be a place for every body in the sport.</p>
         </div>
     </div>
 
@@ -251,6 +260,7 @@
 </body>
     
 </html>
+
 
 
 
