@@ -27,6 +27,23 @@
         }
 
         header { text-align: center; margin-bottom: 20px; }
+
+        .tab-content {
+            display: none;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Show the tab that has the 'active' class */
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Optional: Highlight the active nav link */
+        nav a.active {
+            color: var(--terracotta);
+            border-bottom: 2px solid var(--terracotta);
+        }
         
         .logo-img { 
             width: 150px; 
@@ -119,7 +136,7 @@
     </header>
 
     <nav>
-        <a onclick="showTab('social')" id=defaultOpen">SOCIAL</a>
+        <a onclick="showTab('social')" id="defaultOpen">SOCIAL</a>
         <a onclick="showTab('training')">TRAINING</a>
         <a onclick="showTab('gear')">GEAR</a>
         <a onclick="showTab('about')">ABOUT</a>
@@ -197,27 +214,37 @@
 
     <script>
     function showTab(tabId) {
-        // Hide all tabs
-        document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.style.display = 'none';
-        });
-        // Show the selected tab
-        const selectedTab = document.getElementById(tabId);
-        if (selectedTab) {
-            selectedTab.style.display = 'block';
-        }
+    // 1. Hide all tab content
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => {
+        content.classList.remove('active');
+        content.style.display = 'none'; 
+    });
+
+    // 2. Remove 'active' class from all nav links
+    const links = document.querySelectorAll('nav a');
+    links.forEach(link => link.classList.remove('active'));
+
+    // 3. Show the specific tab and mark link as active
+    const activeTab = document.getElementById(tabId);
+    if (activeTab) {
+        activeTab.classList.add('active');
+        activeTab.style.display = 'block';
     }
 
-    // Wait for the HTML to be fully loaded before clicking the default tab
+    // 4. Mark the clicked link as active (helps the user know where they are)
+    event.currentTarget.classList.add('active');
+    }
+
+    // Ensure Social opens on load
     document.addEventListener("DOMContentLoaded", function() {
-        const defaultTab = document.getElementById("defaultOpen");
-        if (defaultTab) {
-            defaultTab.click();
-        }
+    document.getElementById("defaultOpen").click();
     });
-    </script>>
+    </script>
+      
 </body>
 </html>
+
 
 
 
