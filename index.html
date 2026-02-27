@@ -220,36 +220,42 @@
 
     <script>
     function showTab(tabId) {
-    // 1. Hide all tab content
+    // 1. Hide every single tab content div
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => {
+        content.style.display = 'none';
         content.classList.remove('active');
-        content.style.display = 'none'; 
     });
 
-    // 2. Remove 'active' class from all nav links
+    // 2. Remove the 'active' styling from all navigation links
     const links = document.querySelectorAll('nav a');
     links.forEach(link => link.classList.remove('active'));
 
-    // 3. Show the specific tab and mark link as active
+    // 3. Show the one tab you actually clicked
     const activeTab = document.getElementById(tabId);
     if (activeTab) {
-        activeTab.classList.add('active');
         activeTab.style.display = 'block';
+        activeTab.classList.add('active');
     }
 
-    // 4. Mark the clicked link as active (helps the user know where they are)
-    event.currentTarget.classList.add('active');
+    // 4. Find the link that was clicked and highlight it
+    // We do this by looking for the link that has the matching onclick ID
+    links.forEach(link => {
+        if (link.getAttribute('onclick').includes(tabId)) {
+            link.classList.add('active');
+        }
+    });
     }
 
-    // Ensure Social opens on load
+    // Ensure the page starts on SOCIAL
     document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("defaultOpen").click();
+    showTab('social');
     });
     </script>
       
 </body>
 </html>
+
 
 
 
