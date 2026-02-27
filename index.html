@@ -35,7 +35,9 @@
             border-radius: 50%; 
             opacity: 0.8;
             transition: all 0.4s ease;
-            border: 3px solid black;
+            border: 3px solid var(--accent-green);
+            padding: 5px;
+            background-color: var(--custom-white);
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-bottom: 10px;
         }
@@ -115,19 +117,15 @@
         <img src="brickbloom_rose.png" alt="Brick & Bloom Logo" class="logo-img">
         <h1>Brick & Bloom | Santa Rosa</h1>
     </header>
-<div class="card">
-                    <h2>Collective</h2>
-                    <p style="font-size: 0.85rem; color:var(--text-main);">Brick & Bloom is a collective designed to make triathlon training social and inclusive. This isn't a formal club.  We’re the bridge to finding your next training partner and inexpensive resources to get started. The Strava group is kept private to support communication between members.</p>
-                    <a href="https://www.strava.com/clubs/brickandbloom" target="_blank" class="strava-btn">Join on STRAVA</a>
-                </div>
+
     <nav>
-        <a onclick="showTab('social')">SOCIAL</a>
+        <a onclick="showTab('social')" id=defaultOpen">SOCIAL</a>
         <a onclick="showTab('training')">TRAINING</a>
         <a onclick="showTab('gear')">GEAR</a>
         <a onclick="showTab('about')">ABOUT</a>
     </nav>
 
-    <div id="social" class="tab-content" style="display:none; max-width: 900px; margin: 0 auto;">
+    <div id="social" class="tab-content active" style="display:none; max-width: 900px; margin: 0 auto;">
         <div class="card">
             <h2>Collective</h2>
             <p style="font-size: 0.85rem; color:var(--text-main);">Brick & Bloom is a collective designed to make triathlon training social and inclusive. This isn't a formal club.  We’re the bridge to finding your next training partner and inexpensive resources to get started. The Strava group is kept private to support communication between members.</p>
@@ -141,6 +139,14 @@
     
     <div id="training" class="tab-content">
         <div class="grid">
+            <div class="main-content">
+                <div class="card">
+                    <h2>Local Clubs Calendar</h2>
+                    <p style="font-size: 0.85rem; color:var(--text-main);">This community calendar shows practies and training offered through local clubs.  Events are identified as either Swim, Bike, or Run.  Future Brick & Bloom oppportunites to connect will be listed there as well.  Click for details or to add them to your personal calendar.</p>
+                    <div class="calendar-container">
+                        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=America%2FLos_Angeles&showPrint=0&src=NGJiMzc2ZTk5MjVhYTU2OGZhZGY1N2YyNDU2YjQzMWViYWQwMGMzNzU4NjRhNTIyNmRmYWJmNmZlMWFiNjM2NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23616161" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
             <div class="sidebar">
                 <div class="card">
                     <h2>Conditions</h2>
@@ -148,17 +154,8 @@
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>    
                 </div>
             </div>
-            <div class="main-content">
-                <div class="card">
-                    <h2>Local Clubs Calendar</h2>
-                    <p style="font-size: 0.85rem; color:var(--text-main);">This community calendar shows practies and training offered through local clubs.  Events are identified as either Swim, Bike, or Run.  Future Brick & Bloom oppportunites to connect will be listed there as well.  Click for details or to add them to your personal calendar.</p>
-                    <div class="calendar-container">
-                        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=America%2FLos_Angeles&showPrint=0&src=NGJiMzc2ZTk5MjVhYTU2OGZhZGY1N2YyNDU2YjQzMWViYWQwMGMzNzU4NjRhNTIyNmRmYWJmNmZlMWFiNjM2NkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23616161" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
+      </div>
 
     <div id="gear" class="tab-content" style="display:none; max-width: 900px; margin: 0 auto;">
         <div class="card">
@@ -199,13 +196,29 @@
     </div>
 
     <script>
-        function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
-            document.getElementById(tabId).style.display = 'block';
+    function showTab(tabId) {
+        // Hide all tabs
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.style.display = 'none';
+        });
+        // Show the selected tab
+        const selectedTab = document.getElementById(tabId);
+        if (selectedTab) {
+            selectedTab.style.display = 'block';
         }
-    </script>
+    }
+
+    // Wait for the HTML to be fully loaded before clicking the default tab
+    document.addEventListener("DOMContentLoaded", function() {
+        const defaultTab = document.getElementById("defaultOpen");
+        if (defaultTab) {
+            defaultTab.click();
+        }
+    });
+    </script>>
 </body>
 </html>
+
 
 
 
