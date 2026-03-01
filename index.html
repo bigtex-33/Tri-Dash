@@ -225,15 +225,23 @@
 
     <script>
     
-    document.addEventListener("DOMContentLoaded", function() {
-    const pin = "6202"; // Set your 4-digit PIN here
-    let entry = prompt("Please enter the 4-digit PIN to view the site:");
-    
-    if (entry !== pin) {
-        alert("Incorrect PIN.");
-        document.body.innerHTML = "<h1>Access Denied</h1>";
+    <script>
+    // 1. LOCK THE SITE IMMEDIATELY
+    const PIN = "6202"; // Change this to your 4-digit number
+    let enteredPin = prompt("Brick & Bloom | Private Preview\n\nPlease enter the 4-digit access code:");
+
+    if (enteredPin !== PIN) {
+        // If they get it wrong, wipe the page and show a message
+        document.documentElement.innerHTML = `
+            <body style="background:#f5f7f2; display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif;">
+                <div style="text-align:center;">
+                    <h1 style="color:#3f5611;">Access Denied</h1>
+                    <p>This site is currently under construction.</p>
+                    <button onclick="location.reload()">Try Again</button>
+                </div>
+            </body>`;
+        throw new Error("Access Denied: Incorrect PIN"); // Stops the rest of the script from running
     }
-    });
 
     function showTab(tabId) {
     // 1. Hide all tabs and remove active class
