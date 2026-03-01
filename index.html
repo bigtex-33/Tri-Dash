@@ -222,58 +222,41 @@
             <p>Whether you are in a season of <strong>Brick</strong> or <strong>Bloom</strong> she want there to be a place for every body in the sport.</p>
         </div>
     </div>
-
-    <script>
     
     <script>
-    // 1. LOCK THE SITE IMMEDIATELY
-    const PIN = "6202"; // Change this to your 4-digit number
-    let enteredPin = prompt("Brick & Bloom | Private Preview\n\nPlease enter the 4-digit access code:");
+    // 1. SIMPLE PIN (No complex wrappers)
+    var password = "1234";
+    var entered = prompt("Enter 4-digit PIN:");
 
-    if (enteredPin !== PIN) {
-        // If they get it wrong, wipe the page and show a message
-        document.documentElement.innerHTML = `
-            <body style="background:#f5f7f2; display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif;">
-                <div style="text-align:center;">
-                    <h1 style="color:#3f5611;">Access Denied</h1>
-                    <p>This site is currently under construction.</p>
-                    <button onclick="location.reload()">Try Again</button>
-                </div>
-            </body>`;
-        throw new Error("Access Denied: Incorrect PIN"); // Stops the rest of the script from running
+    if (entered !== password) {
+        alert("Access Denied");
+        document.body.innerHTML = "<h1>Private Site</h1>";
+    } else {
+        // Only run the rest if the PIN is correct
+        showTab('social');
     }
 
+    // 2. TAB FUNCTION
     function showTab(tabId) {
-    // 1. Hide all tabs and remove active class
-    const contents = document.querySelectorAll('.tab-content');
-    contents.forEach(content => {
-        content.style.display = 'none';
-        content.classList.remove('active');
-    });
-
-    // 2. Remove active styling from nav links
-    const links = document.querySelectorAll('nav a');
-    links.forEach(link => link.classList.remove('active'));
-
-    // 3. Show the selected tab
-    const activeTab = document.getElementById(tabId);
-    if (activeTab) {
-        activeTab.style.display = 'block';
-        activeTab.classList.add('active');
-    }
-
-    // 4. Highlight the correct link
-    links.forEach(link => {
-        if (link.getAttribute('onclick').includes(tabId)) {
-            link.classList.add('active');
+        // Hide all
+        var contents = document.querySelectorAll('.tab-content');
+        for (var i = 0; i < contents.length; i++) {
+            contents[i].style.display = 'none';
         }
-    });
-    }
 
-    // Ensure the page starts correctly
-    window.onload = function() {
-    showTab('social');
-    };
+        // Show the one we want
+        var active = document.getElementById(tabId);
+        if (active) {
+            active.style.display = 'block';
+        }
+
+        // Handle active link styling
+        var links = document.querySelectorAll('nav a');
+        for (var j = 0; j < links.length; j++) {
+            links[j].style.color = '#3a3a3a'; // Default color
+            links[j].style.borderBottom = 'none';
+        }
+    }
     </script>
       
 </body>
